@@ -1,3 +1,3 @@
 # goanyways
 
-# The web respository of project for Nova
+The web respository of project for Nova
