@@ -306,6 +306,13 @@ form {
   transition: 0.3s;
 }
 
+/* Google Maps API */
+#map {
+      
+       height: 400px;
+       width: 100%;
+      }
+
 #fh5co-our-services,
 #fh5co-about-us,
 #fh5co-features,
@@ -944,6 +951,13 @@ form {
 }
 .btn.btn-default:hover, .btn.btn-default:focus, .btn.btn-default:active {
   border-color: transparent;
+}
+.google-btn{
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px;
+  background: #ff5353;
 }
 
 .social {

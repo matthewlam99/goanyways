@@ -16,6 +16,12 @@
               <li <% if (page_name === 'about'){ %> class="active" <% } %> ><a href="about" data-nav-section="about"><span>About</span></a></li>
               <li <% if (page_name === 'faq'){ %> class="active" <% } %> ><a href="faq" data-nav-section="faq"><span>FAQ</span></a></li>
               <li <% if (page_name === 'contact'){ %> class="active" <% } %> ><a href="contact" data-nav-section="contactus"><span>Contact Us</span></a></li>
+              <% if (user) { %>
+              <li <% if (page_name === 'profile'){ %> class="active" <% } %> ><a href="/profile" data-nav-section="profile"><span>Profile</span></a></li>
+              <li <% if (page_name === 'logout'){ %> class="active" <% } %> ><a href="/auth/logout" data-nav-section="logout"><span>Logout</span></a></li>
+              <% } else { %>
+                <li <% if (page_name === 'login'){ %> class="active" <% } %> ><a href="/auth/login" data-nav-section="login"><span>Login</span></a></li>
+              <% } %>
             </ul>
           </div>
         </nav>
