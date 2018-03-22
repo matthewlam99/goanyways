@@ -6,7 +6,7 @@ var passport = require('passport');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var index = require('./routes/index');
+var indexRoutes = require('./routes/index-routes');
 var authRoutes = require('./routes/auth-routes');
 var profileRoutes = require('./routes/profile-routes');
 var passportSetup = require('./config/passport-setup');
@@ -43,7 +43,7 @@ mongoose.connect(keys.mongodb.dbURI, () => {
 });
 
 //set up routes
-app.use('/', index);
+app.use('/', indexRoutes);
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
 
