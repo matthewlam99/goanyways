@@ -8,17 +8,17 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var indexRoutes = require('./routes/index-routes');
 var authRoutes = require('./routes/auth-routes');
+var blogRoutes = require('./routes/blog-routes');
 var profileRoutes = require('./routes/profile-routes');
 var passportSetup = require('./config/passport-setup');
-var mongoose = require('mongoose');
 var keys = require('./config/keys');
+var mongoose = require('mongoose');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
 
 app.use(favicon(path.join(__dirname, 'public', 'images/favicon.ico')));
 app.use(logger('dev'));
@@ -39,13 +39,14 @@ app.use(passport.session());
 
 //connect to mongodb
 mongoose.connect(keys.mongodb.dbURI, () => {
-  console.log('connected to mongodb...');
+  console.log('connected to mongoDB...');
 });
 
 //set up routes
 app.use('/', indexRoutes);
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
+app.use('/blog', blogRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
