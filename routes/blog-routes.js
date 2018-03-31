@@ -15,9 +15,8 @@ const authCheck = (req, res, next) => {
 
 //get a list of blogs
 router.get('/', (req, res, next) => {
-  //res.render('blog', {user: req.user, title: req.user.username, page_name: 'blog'});
   Blog.find({}).then((blogs) => {
-    res.send(blogs);
+    res.render('blog', {user: req.user, title: 'Blog', page_name: 'blog', blog: blogs});
   }).catch(next);
 });
 
@@ -43,7 +42,7 @@ router.put('/:id', (req, res, next) => {
 router.delete('/:id', (req, res, next) => {
   Blog.findByIdAndRemove({_id: req.params.id}).then((blog) => {
     res.send(blog);
-  });
+  }).catch(next);
   //res.render('blog', {user: req.user, title: req.user.username, page_name: 'blog'});
 });
 

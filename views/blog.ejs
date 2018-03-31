@@ -15,8 +15,12 @@
       </div>
     </div>
     <h1>Blog Posts</h1>
-    <p>Login page</p>
-    <h2> <% blog %> <h2
+    <% for (var i = blog.length-1; i >= 0; i--) { %>
+      <h2><%= blog[i].title%></h2>
+      <h4><%= blog[i].updated%></h4>
+      <h6>By: <%= blog[i].name%></h6>
+      <p><%= blog[i].body%></p>
+    <% } %>
 
     <% include partials/js %>
     <% include partials/footer %>
